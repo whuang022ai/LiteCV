@@ -66,24 +66,7 @@ public class ImageIO
        }
         return mix;
     }
-   /* public int[][]getImgRefactPadding(int[][]imag,int paddingSize)
-    {
-        for(int i=0;i<paddingSize;i++)
-        {
-            for(int j=0;j<imag.length-paddingSize/2;j++)
-            {
-                imag[i][j+1]=imag[i][j];
-            }
-        }
-         for(int i=imag.length-paddingSize/2,k=0;k<paddingSize;i++,k++)
-        {
-            for(int j=0;j<imag.length-paddingSize/2;j++)
-            {
-                imag[i][j+1]=imag[i][j];
-            }
-        }
-        return imag;
-    }*/
+  
     public int [][] getGrayF(BufferedImage img,int paddingSize) //一次運算三個通道的灰化+影像邊界保護擴充
     {
        int w1 = img.getWidth()+paddingSize*2;//水平

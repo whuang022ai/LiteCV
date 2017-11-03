@@ -1,7 +1,7 @@
 package com.whuang022.litecv.colorspace;
 
 import java.awt.image.BufferedImage;
-import java.lang.reflect.Type;
+
 
 /**
  *
@@ -14,11 +14,41 @@ public class ImageConvert
         String typ=dst.getClass().getTypeName();
         if(typ.equals("com.whuang022.litecv.colorspace.ImageRGB"))
         {
-            return convertRGB(src, (ImageRGB) dst);
+            return convertRGB(src);
+        }
+        else  if(typ.equals("com.whuang022.litecv.colorspace.ImageGray"))
+        {
+            return convertGray(src);
         }
         return null;
     }
-    private ImageRGB convertRGB(BufferedImage src,ImageRGB dst)
+    private Image convertGray(BufferedImage src)
+    {
+       int w1 = src.getWidth();
+       int h1 = src.getHeight();
+       int [][] mix= new int[h1][w1];
+       int valueR =0;
+       int valueG =0;
+       int valueB=0;
+       for (int i = 0; i < h1; i++)
+       {
+            for (int j = 0; j < w1; j++) 
+            {
+                valueR = src.getRGB(j, i); 
+                valueG = src.getRGB(j, i);
+                valueB = src.getRGB(j, i);
+                int red = ( valueR >> 16) & 0xff;
+                int green = ( valueG >> 8) & 0xff;
+                int blue = ( valueB) & 0xff;
+                int mixGray=(int) Math.round(red*ImageColorVector.grayR+ green*ImageColorVector.grayG+  blue*ImageColorVector.grayB);
+                mix[i][j] = mixGray;
+            }
+       }
+        ImageGray gray=new ImageGray();
+        gray.G= mix;
+        return gray;
+    }
+    private ImageRGB convertRGB(BufferedImage src)
     {
        int w1 = src.getWidth();
        int h1 = src.getHeight();

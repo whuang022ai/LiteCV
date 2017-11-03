@@ -21,10 +21,12 @@ public class ImageRGBTest {
 
         ImageIO io=new ImageIO();
         BufferedImage src= io.getImage("test.jpg");
-        Image image =new ImageRGB();
+        
+        Image image =ImageSpaceFactory.getImageColorSpaceInstance(ImageColorSpaceType.ColorSpaceGray);
         ImageConvert convert=new ImageConvert();
         Image c=convert.convert(src, image);
         c.display();
+        //c.save("C:\\Users\\user\\Desktop\\test.jpg", "jpg");
 
     }
     
