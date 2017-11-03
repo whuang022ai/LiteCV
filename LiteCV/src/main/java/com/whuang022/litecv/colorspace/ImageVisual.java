@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.whuang022.litecv.colorspace;
 
 import java.awt.Color;
@@ -53,6 +48,25 @@ public class ImageVisual implements Serializable
             {
                int pixel=G[i][j];
                 pixel = G[i][j] <<8 | G[i][j]<<16;
+                bufferedImage.setRGB(j, i, pixel);
+            }
+        }
+        return  bufferedImage;
+    }
+    public BufferedImage matrixToImage(double [][] H,double [][]S,double[][]V)//HSV矩陣轉影像
+    {
+        BufferedImage bufferedImage = new BufferedImage( H[0].length,  H.length, BufferedImage.TYPE_INT_RGB);
+        for (int i = 0; i < H.length; i++) 
+        {
+            for (int j = 0; j < H[0].length; j++) 
+            {
+                int red= (int) Math.round(H[i][j]*(1.0/360.0)*255);
+                int green=(int) Math.round(S[i][j]*255);
+                int blue=(int) Math.round(V[i][j]);
+                if(red>255){red=255;}
+                if(blue>255){blue=255;}
+                if(green>255){green=255;}
+                int pixel=new Color(blue,green,red).getRGB(); 
                 bufferedImage.setRGB(j, i, pixel);
             }
         }
