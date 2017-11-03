@@ -20,9 +20,9 @@ public class ImageRGBTest {
     public static void main(String[] args) {
 
         ImageIO io=new ImageIO();
-        BufferedImage src= io.getImage("test.jpg");
+        BufferedImage src= io.getImage("C:\\Users\\user\\Desktop\\hsv.jpg");
         
-        Image image =ImageSpaceFactory.getImageColorSpaceInstance(ImageColorSpaceType.ColorSpaceGray);
+        Image image =ImageSpaceFactory.getImageColorSpaceInstance(ImageColorSpaceType.ColorSpaceHSV);
         ImageConvert convert=new ImageConvert();
         Image c=convert.convert(src, image);
         c.display();
