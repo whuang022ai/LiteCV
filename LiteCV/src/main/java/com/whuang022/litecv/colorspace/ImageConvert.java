@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
 /**
  *
  * @author user
+ * ref:https://www.cs.rit.edu/~ncs/color/t_convert.html
  */
 public class ImageConvert 
 {
@@ -14,19 +15,19 @@ public class ImageConvert
         String typ=dst.getClass().getTypeName();
         if(typ.equals("com.whuang022.litecv.colorspace.ImageRGB"))
         {
-            return convertRGB(src);
+            return RGBtoRGB(src);
         }
         else  if(typ.equals("com.whuang022.litecv.colorspace.ImageGray"))
         {
-            return convertGray(src);
+            return RGBtoGray(src);
         }
         else  if(typ.equals("com.whuang022.litecv.colorspace.ImageHSV"))
         {
-            return convertHSV(src);
+            return RGBtoHSV(src);
         }
         return null;
     }
-    private Image convertGray(BufferedImage src)
+    private Image RGBtoGray(BufferedImage src)
     {
        int w1 = src.getWidth();
        int h1 = src.getHeight();
@@ -52,7 +53,7 @@ public class ImageConvert
         gray.G= mix;
         return gray;
     }
-    private Image convertRGB(BufferedImage src)
+    private Image RGBtoRGB(BufferedImage src)
     {
        int w1 = src.getWidth();
        int h1 = src.getHeight();
@@ -83,7 +84,7 @@ public class ImageConvert
        rgb.B=mixB;
        return rgb;
     }
-    private Image convertHSV(BufferedImage src)
+    private Image RGBtoHSV(BufferedImage src)
     {
        int w1 = src.getWidth();
        int h1 = src.getHeight();
@@ -154,5 +155,56 @@ public class ImageConvert
        hsv.S=mixS;
        hsv.V=mixV;
        return hsv;
+    }
+    
+    private void HSVtoRGB(  double h,  double s,  double v )
+    {
+        double r=0; double g=0; double b=0;
+        int i;
+        double f, p, q, t;
+        if( s == 0 ) 
+        {
+          r = g = b = v;
+          return;
+        }
+        h /= 60;			// sector 0 to 5
+        i = (int) Math.floor(h);
+        f = h - i;			// factorial part of h
+        p = v * ( 1 - s );
+        q = v * ( 1 - s * f );
+        t = v * ( 1 - s * ( 1 - f ) );
+        switch( i ) 
+        {
+            case 0:
+                    r = v;
+                    g = t;
+                    b = p;
+                    break;
+            case 1:
+                    r = q;
+                    g = v;
+                    b = p;
+                    break;
+            case 2:
+                    r = p;
+                    g = v;
+                    b = t;
+                    break;
+            case 3:
+                    r = p;
+                    g = q;
+                    b = v;
+                    break;
+            case 4:
+                    r = t;
+                    g = p;
+                    b = v;
+                    break;
+            default:	
+                    r = v;
+                    g = p;
+                    b = q;
+                    break;
+        }
     }
 }
