@@ -6,5 +6,5 @@ package com.whuang022.litecv.colorspace;
  */
 public enum ImageColorSpaceType {
     
-    ColorSpaceRGB,ColorSpaceGray
+    ColorSpaceRGB,ColorSpaceGray,ColorSpaceHSV
 }
