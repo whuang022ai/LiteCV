@@ -12,7 +12,7 @@ import javax.imageio.ImageIO;
  *
  * @author user
  */
-public class ImageGray extends ImageVisual implements Image ,Serializable 
+public class ImageGray extends ImageVisual implements ImageMatrix ,Serializable 
 {
     public int [][] G;
     
@@ -36,5 +36,12 @@ public class ImageGray extends ImageVisual implements Image ,Serializable
             logger.error(ex.getMessage());
         }
     }
+
+    @Override
+    public ImageColorSpaceType getType() 
+    {
+        return ImageColorSpaceType.ColorSpaceGray;
+    }
+
     
 }

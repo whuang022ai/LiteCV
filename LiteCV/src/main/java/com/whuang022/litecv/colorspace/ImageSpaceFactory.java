@@ -6,7 +6,7 @@ package com.whuang022.litecv.colorspace;
  */
 public class ImageSpaceFactory 
 {
-    public static Image getImageColorSpaceInstance(ImageColorSpaceType type)
+    public static ImageMatrix getImageColorSpaceInstance(ImageColorSpaceType type)
     {
         switch (type) 
         {

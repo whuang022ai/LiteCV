@@ -66,7 +66,7 @@ public class ImageIO
        }
         return mix;
     }
-  
+ 
     public int [][] getGrayF(BufferedImage img,int paddingSize) //一次運算三個通道的灰化+影像邊界保護擴充
     {
        int w1 = img.getWidth()+paddingSize*2;//水平
@@ -114,4 +114,5 @@ public class ImageIO
         }
         return  bufferedImage;
     }    
+   
 }

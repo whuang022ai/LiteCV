@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.whuang022.litecv.colorspace;
 
 import static com.whuang022.litecv.colorspace.ImageRGB.logger;
@@ -16,7 +11,7 @@ import javax.imageio.ImageIO;
  *
  * @author user
  */
-public class ImageHSV extends ImageVisual implements Image ,Serializable 
+public class ImageHSV extends ImageVisual implements ImageMatrix ,Serializable 
 {
     double [][]H;
     double [][]S;
@@ -40,5 +35,13 @@ public class ImageHSV extends ImageVisual implements Image ,Serializable
             logger.error(ex.getMessage());
         }
     }
+
+    @Override
+    public ImageColorSpaceType getType() 
+    {
+       return ImageColorSpaceType.ColorSpaceHSV;
+    }
+
+  
     
 }
