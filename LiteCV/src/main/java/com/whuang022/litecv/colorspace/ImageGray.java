@@ -36,5 +36,6 @@ public class ImageGray extends ImageVisual implements Image ,Serializable
             logger.error(ex.getMessage());
         }
     }
+
     
 }

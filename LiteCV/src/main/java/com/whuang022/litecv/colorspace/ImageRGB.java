@@ -16,7 +16,8 @@ public class ImageRGB extends ImageVisual implements Image ,Serializable
     static org.slf4j.Logger logger = LoggerFactory.getLogger(ImageRGB.class);
     public int [][] R;
     public int [][] G;
-    public int [][] B;     
+    public int [][] B;   
+   
     @Override
     public void display() 
     {
@@ -38,4 +39,8 @@ public class ImageRGB extends ImageVisual implements Image ,Serializable
             logger.error(ex.getMessage());
         }
     }
+
+   
+   
+ 
 }
