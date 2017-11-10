@@ -8,5 +8,7 @@ public interface ImageMatrix
 {
     public void display();
     public void save(String path,String type);
+
     public ImageColorSpaceType getType();
+
 }

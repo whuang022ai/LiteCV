@@ -42,7 +42,6 @@ public class ImageColorSpaceConverter
         {
             double theta=( (0.5*((R-G)+(R-B)))/Math.sqrt( (R-G)*(R-G)+(R-B)*(G-B)));
             H=Math.acos(theta);
-           
         }
         if(B>G)
         {
@@ -56,10 +55,7 @@ public class ImageColorSpaceConverter
         {
             S=0;
         }
-        
-        double degress = H * (180 / Math.PI);
-       // System.out.println("H:"+degress);
-        hsv.add(degress);
+        hsv.add(H);
         hsv.add(S);
         hsv.add(V);
         return hsv;

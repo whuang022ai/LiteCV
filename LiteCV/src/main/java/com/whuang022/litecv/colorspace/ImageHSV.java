@@ -36,11 +36,12 @@ public class ImageHSV extends ImageVisual implements ImageMatrix ,Serializable
         }
     }
 
-    @Override
+
     public ImageColorSpaceType getType() 
     {
        return ImageColorSpaceType.ColorSpaceHSV;
     }
+
 
   
     

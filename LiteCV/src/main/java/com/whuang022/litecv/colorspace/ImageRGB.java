@@ -40,7 +40,7 @@ public class ImageRGB extends ImageVisual implements ImageMatrix ,Serializable
         }
     }
 
-    @Override
+
     public ImageColorSpaceType getType() 
     {
         return ImageColorSpaceType.ColorSpaceRGB;

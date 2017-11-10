@@ -37,11 +37,13 @@ public class ImageGray extends ImageVisual implements ImageMatrix ,Serializable
         }
     }
 
+
     @Override
     public ImageColorSpaceType getType() 
     {
         return ImageColorSpaceType.ColorSpaceGray;
     }
+
 
     
 }

@@ -1,5 +1,6 @@
 package com.whuang022.litecv.colorspace;
 
+
 import static com.whuang022.litecv.colorspace.ImageRGB.logger;
 
 import java.awt.image.BufferedImage;
@@ -12,9 +13,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
+import java.awt.image.BufferedImage;
+import java.util.Vector;
+
+
 
 /**
  *
+
  * @author whuang022
  * ref:https://www.cs.rit.edu/~ncs/color/t_convert.html
  */
@@ -62,23 +68,13 @@ public class ImageColorSpaceReader implements ImageIO
             return false;
         }
     }
-    private ImageMatrix BufferedImagetoImageMatrix(BufferedImage src,String typ)
-    {
-        if(typ.equals("ColorSpaceRGB"))
-        {
-            return BufferedImagetoRGB(src);
-        }
-        else  if(typ.equals("ColorSpaceGray"))
-        {
-            return BufferedImagetoGray(src);
-        }
-        else  if(typ.equals("ColorSpaceHSV"))
-        {
-            return BufferedImagetoHSV(src);
-        }
-        return null;
-    }
+ 
+
+
+
     private ImageMatrix BufferedImagetoGray(BufferedImage src)
+
+
     {
        int w1 = src.getWidth();
        int h1 = src.getHeight();
@@ -105,7 +101,9 @@ public class ImageColorSpaceReader implements ImageIO
         gray.mask=new boolean[h1][w1];
         return gray;
     }
+
     private ImageMatrix BufferedImagetoRGB(BufferedImage src)
+
     {
        int w1 = src.getWidth();
        int h1 = src.getHeight();
@@ -137,7 +135,9 @@ public class ImageColorSpaceReader implements ImageIO
        rgb.mask=new boolean[h1][w1];
        return rgb;
     }
+
     private ImageMatrix BufferedImagetoHSV(BufferedImage src)
+
     {
        int w1 = src.getWidth();
        int h1 = src.getHeight();
@@ -171,6 +171,7 @@ public class ImageColorSpaceReader implements ImageIO
        return hsv;
     }
 
+
     @Override
     public BufferedImage getBufferedImage(String path) 
     {
@@ -200,7 +201,27 @@ public class ImageColorSpaceReader implements ImageIO
         }
         return null;
     }
-   
+
+
+    public ImageMatrix BufferedImagetoImageMatrix(BufferedImage src, String dst)
+    {
+        String typ=dst.toString();
+
+        if(typ.equals("ColorSpaceRGB"))
+        {
+            return BufferedImagetoRGB(src);
+        }
+        else  if(typ.equals("ColorSpaceGray"))
+        {
+            return BufferedImagetoGray(src);
+        }
+        else  if(typ.equals("ColorSpaceHSV"))
+        {
+            return BufferedImagetoHSV(src);
+        }
+        return null;
     
+    }
+
     
 }
