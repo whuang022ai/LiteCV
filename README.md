@@ -46,7 +46,7 @@ public class ImageMedianFilterProcess {
 }
 
 ```
-![Scheme](Litecvex.jpg)
+![](https://bytebucket.org/whuang022/litecv/raw/8d65cf0ae8eef320033e81cd5ba116c8d9d5679b/LiteCV/Litecvex.jpg)
 
 ## License
 Copyright 2018 YANG,MING-HAN
