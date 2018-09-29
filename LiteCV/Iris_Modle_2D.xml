@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<litecv_storage>
+  <ANN type_id="litecv-ml-ann-mlp-treelayer">
+    <layer_sizes type_id="litecv-matrix">
+      <rows>1</rows>
+      <cols>3</cols>
+      <data>4 6 2</data>
+    </layer_sizes>
+    <activation_function>SigmodFunction</activation_function>
+    <QLayerType>Onehot</QLayerType>
+    <inputLayerNormal>false</inputLayerNormal>
+    <hiddenLayerNormal>false</hiddenLayerNormal>
+    <weigths>
+      <WeightsIH type_id="litecv-matrix">
+        <rows>4</rows>
+        <cols>6</cols>
+        <data>-0.2501706701621936 0.8208159902369232 1.246459773541913 -0.018806483981119986 0.7319659680244196 0.15206038683062859 2.5993240087864162 1.1481720477075479 0.774097409113152 2.6274181099500313 0.6071325221455802 0.9053148787590393 -2.3462772566545897 0.9883826824386066 -0.2766066456111656 -3.1002328768891947 0.5214570101081545 0.4941831641753527 -0.09435097852940179 -0.027432180765182314 0.5405894429982968 -0.09516984179602694 -0.8329754370058752 0.20901824240622668</data>
+      </WeightsIH>
+      <WeightsHO type_id="litecv-matrix">
+        <rows>6</rows>
+        <cols>2</cols>
+        <data>-3.3819205991540424 3.7808522347114857 0.8813467153781086 -0.8121004835819176 1.0631888828902731 -0.848064496979028 -5.554588605788349 5.1871072313992705 1.288425591477206 -0.7404793415019254 0.9326120722918725 -0.6425218743004844</data>
+      </WeightsHO>
+      <BiasHiddenLayer type_id="litecv-matrix">
+        <rows>1</rows>
+        <cols>6</cols>
+        <data>0.13131465064618675 -0.3911389080147253 -0.005016738054872491 -0.5168960159379133 0.6283630670525283 0.2481965355475403</data>
+      </BiasHiddenLayer>
+      <BiasOutputLayer type_id="litecv-matrix">
+        <rows>1</rows>
+        <cols>2</cols>
+        <data>-0.24262870698902805 1.3742681733171571</data>
+      </BiasOutputLayer>
+    </weigths>
+  </ANN>
+</litecv_storage>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<litecv_storage>
+  <ANN type_id="litecv-ml-ann-mlp-treelayer">
+    <layer_sizes type_id="litecv-matrix">
+      <rows>1</rows>
+      <cols>3</cols>
+      <data>2 3 2</data>
+    </layer_sizes>
+    <activation_function>HyperbolicTangentFuction</activation_function>
+    <QLayerType>Onehot</QLayerType>
+    <inputLayerNormal>false</inputLayerNormal>
+    <hiddenLayerNormal>false</hiddenLayerNormal>
+    <weigths>
+      <WeightsIH type_id="litecv-matrix">
+        <rows>2</rows>
+        <cols>3</cols>
+        <data>-0.43108141526956467 -2.467015633981633 1.9242636893135359 -0.092412114387798 2.2637508067478014 -2.1276869745023363</data>
+      </WeightsIH>
+      <WeightsHO type_id="litecv-matrix">
+        <rows>3</rows>
+        <cols>2</cols>
+        <data>0.9491421227391202 -0.04116543472202238 -1.7714947400916397 1.8726090906109192 -1.7342007622446414 1.9311824226947756</data>
+      </WeightsHO>
+      <BiasHiddenLayer type_id="litecv-matrix">
+        <rows>1</rows>
+        <cols>3</cols>
+        <data>0.672216567615551 1.1645634891213341 0.9625627221065238</data>
+      </BiasHiddenLayer>
+      <BiasOutputLayer type_id="litecv-matrix">
+        <rows>1</rows>
+        <cols>2</cols>
+        <data>2.1930990141999405 -0.3980299801469318</data>
+      </BiasOutputLayer>
+    </weigths>
+  </ANN>
+</litecv_storage>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<litecv_storage>
+  <ANN type_id="litecv-ml-ann-mlp-treelayer">
+    <layer_sizes type_id="litecv-matrix">
+      <rows>1</rows>
+      <cols>3</cols>
+      <data>4 6 3</data>
+    </layer_sizes>
+    <activation_function>SigmodFunction</activation_function>
+    <QLayerType>Onehot</QLayerType>
+    <inputLayerNormal>false</inputLayerNormal>
+    <hiddenLayerNormal>false</hiddenLayerNormal>
+    <weigths>
+      <WeightsIH type_id="litecv-matrix">
+        <rows>4</rows>
+        <cols>6</cols>
+        <data>-0.303812466003138 -0.11611575808697505 1.5796627832896644 0.1900783153279793 0.1880250424126227 -2.6704642924372077 0.07327218982352508 -0.2514981593385863 0.566178541653502 2.433326838524573 1.1178262821602387 -2.7209167171440285 0.6980190654375952 -0.15727504013386606 0.6454917781806082 -3.094821745197913 0.3474571216740458 4.095266096378909 1.5441374464699953 0.28158071437374416 0.004486517599838548 -0.7602437962039509 0.5062006835098141 4.321770658869129</data>
+      </WeightsIH>
+      <WeightsHO type_id="litecv-matrix">
+        <rows>6</rows>
+        <cols>3</cols>
+        <data>-0.5905262755911103 -0.6659782694439695 1.096206200061517 0.5890083038989423 0.3940282897916073 0.7497003394734705 -0.4099174678720089 -0.8372227847284452 0.8330687571807365 5.636569537246042 -1.6789033170449357 -5.72327724658575 -0.7012597574519615 -0.5204832811280675 0.7369815747826398 -4.1383388650237185 6.966877079359348 -6.064882986031817</data>
+      </WeightsHO>
+      <BiasHiddenLayer type_id="litecv-matrix">
+        <rows>1</rows>
+        <cols>6</cols>
+        <data>0.4663601409998432 0.9031511342137728 0.8417642371887172 -0.29336568179574873 0.6828866159370818 2.710073555387906</data>
+      </BiasHiddenLayer>
+      <BiasOutputLayer type_id="litecv-matrix">
+        <rows>1</rows>
+        <cols>3</cols>
+        <data>1.1821082003746528 1.6495544931878638 -0.40416438262279764</data>
+      </BiasOutputLayer>
+    </weigths>
+  </ANN>
+</litecv_storage>
