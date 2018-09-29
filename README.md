@@ -33,7 +33,7 @@ public class ImageMedianFilterProcess {
     public static void main(String[] args) {
         // TODO code application logic here
         ImageIO io=new ImageIO();
-        BufferedImage imageBuff= io.getImage("C:\\Users\\user\\Desktop\\noisylena.jpg"); // the noisy lena image
+        BufferedImage imageBuff= io.getImage("noisylena.jpg"); // the noisy lena image
         int[][]image=io.getGrayF(imageBuff);
         BufferedImage imageGrayBuff=io.matrixToImage(image);
         io.showImage(imageGrayBuff);
