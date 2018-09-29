@@ -3,6 +3,7 @@ package com.whuang022.litecv.filter;
 import com.whuang022.litecv.convolution.ImageConvolution;
 import com.whuang022.litecv.convolution.ImageConvolutionFFT;
 import com.whuang022.litecv.kernel.ImageEdgeKernel;
+import java.util.ArrayList;
 
 /**
  *
@@ -28,12 +29,22 @@ public class ImageSobelEdgeFilter implements ImageFilter
        {
             for(int j=0;j<  output[0].length;j++)
             {
-                int s=(int)Math.round(Math.sqrt(outputX[i][j]*outputX[i][j]+outputX[i][j]*outputY[i][j]));
+               // int s=(int)Math.round(Math.sqrt(outputX[i][j]*outputX[i][j]+outputX[i][j]*outputY[i][j]));
+                int s=(int)(Math.abs(outputX[i][j])+Math.abs(outputY[i][j]));
                 output[i][j]=s;
             }
        }
       // System.out.println("src:"+ output.length+":"+output[0].length);
         return output;
+    }
+    public ArrayList<int[][]> filterTwoPath(int[][] image) 
+    {
+       ArrayList<int[][]> output=new ArrayList<> ();
+       int [][]outputY=imageConvolution.convolution(image, ImageEdgeKernel.sobelGxR);
+       int [][]outputX=imageConvolution.convolution(image, ImageEdgeKernel.sobelGyR);
+       output.add(outputX);
+       output.add(outputY);
+       return output;
     }
     
 }

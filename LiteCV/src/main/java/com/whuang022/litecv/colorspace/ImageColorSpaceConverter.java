@@ -8,6 +8,18 @@ import java.util.Vector;
  */
 public class ImageColorSpaceConverter 
 {
+    public static Vector<Double> RGBtoYCbCr(int R,int G,int B)
+    {
+        Vector<Double> YCbCr=new Vector<>();
+        double Y=0,Cr=0,Cb=0;
+        Y=0.257*R + 0.504*G + 0.098*B + 16;
+        Cb=-0.148*R - 0.291*G + 0.439*B + 128;
+        Cr=0.439*R - 0.368*G - 0.071*B + 128;
+        YCbCr.add(Y);
+        YCbCr.add(Cb);
+        YCbCr.add(Cr);
+        return YCbCr;
+    }
     public static int RGBtoGray(int R,int G,int B)
     {
        return  (int) Math.round(R*ImageColorVector.grayR+ G*ImageColorVector.grayG+  B*ImageColorVector.grayB);

@@ -61,14 +61,14 @@ public class ImageProcessHistogram
     private void getHistogram(int [][] image)
     {
         int []histogram=new int[256];//灰度統計
-        for(int i=0;i<image.length;i++)
+        for (int[] image1 : image) 
         {
-            for(int j=0;j<image[0].length;j++)
+            for (int j = 0; j<image[0].length; j++) 
             {
-                int  tmp=image[i][j];
+                int tmp = image1[j];
                 if(tmp>0&&tmp<=255)
                 {
-                   histogram[tmp]++; 
+                    histogram[tmp]++; 
                 }
             }
         }

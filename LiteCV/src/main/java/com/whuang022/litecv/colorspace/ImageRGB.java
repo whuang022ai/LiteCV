@@ -25,6 +25,10 @@ public class ImageRGB extends ImageVisual implements ImageMatrix ,Serializable
         showImage(image,"RGB Color Space");
     }
     
+    public BufferedImage getBufferedImage()
+    {
+        return matrixToImage(R,G,B);
+    }
     @Override
     public void save(String path,String type) 
     {

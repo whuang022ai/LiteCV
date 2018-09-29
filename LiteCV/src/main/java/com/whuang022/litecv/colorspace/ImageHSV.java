@@ -24,7 +24,7 @@ public class ImageHSV extends ImageVisual implements ImageMatrix ,Serializable
 
     @Override
     public void save(String path, String type) {
-       File outputfile = new File(path);
+        File outputfile = new File(path);
         BufferedImage image=matrixToImage(H,S,V);
         try
         {

@@ -5,7 +5,7 @@ import com.whuang022.litecv.colorspace.ImageColorSpaceType;
 import com.whuang022.litecv.colorspace.ImageMatrix;
 import com.whuang022.litecv.colorspace.ImageRGB;
 import com.whuang022.litecv.filter.ImageFilterConfig;
-import com.whuang022.litecv.threshold.ImageThresholdComparator;
+
 import com.whuang022.litecv.thresholdDynamic.ImageDynamicComparator;
 import java.util.Vector;
 
@@ -33,10 +33,13 @@ public class ImageHSVFilter implements ImageColorFilter
                 int B=imageSrc.B[i][j];
                 Vector<Double> hsv=ImageColorSpaceConverter.RGBtoHSV(R, G, B);
                 double H=hsv.get(0);
+      //          System.out.println(H);
+                double HH=(H/(2*Math.PI))*360;//弧度轉角度
+                //System.out.println(HH);
                 double S=hsv.get(1);
                 double V=hsv.get(2);
                 ImageFilterConfig config=new ImageFilterConfig();
-                config.setting.put("H", ""+H);
+                config.setting.put("H", ""+HH);
                 config.setting.put("S", ""+S);
                 config.setting.put("V", ""+V);
                 imageSrc.mask[i][j]=!threshold.threshold(config);

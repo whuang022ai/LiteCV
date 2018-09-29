@@ -10,10 +10,11 @@ public class ImageRGBTest
     public static void main(String[] args) 
     {
 
-        String path="C:\\Users\\user\\Desktop\\hsv.jpg";
+        String path="test.jpg";//        String path="C:\\Users\\user\\Desktop\\hsv.jpg";
+
         ImageMatrix image =null;
-        ImageColorSpaceReader reader=new ImageColorSpaceReader();
-        image=reader.imageRead(path, ImageColorSpaceType.ColorSpaceGray);
+        ImageColorReader reader=new ImageColorReader();
+        image=reader.imageRead(path, ImageColorSpaceType.ColorSpaceHSV);
         image.display();
     }
     

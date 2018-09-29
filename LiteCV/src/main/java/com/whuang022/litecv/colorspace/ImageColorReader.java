@@ -2,6 +2,9 @@ package com.whuang022.litecv.colorspace;
 
 
 import static com.whuang022.litecv.colorspace.ImageRGB.logger;
+import com.whuang022.litecv.filter.ImageFilterConfig;
+import com.whuang022.litecv.thresholdDynamic.ImageDynamicComparator;
+import java.awt.Color;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -24,14 +27,16 @@ import java.util.Vector;
  * @author whuang022
  * ref:https://www.cs.rit.edu/~ncs/color/t_convert.html
  */
-public class ImageColorSpaceReader implements ImageIO
+public class ImageColorReader extends ImageIOReader implements ImageReader
 {
     
+   @Override
    public ImageMatrix imageRead(BufferedImage src,ImageColorSpaceType dst)
    {
         String typ=dst.toString();
         return BufferedImagetoImageMatrix(src,typ);
     }
+   @Override
     public ImageMatrix imageRead(String path,ImageColorSpaceType dst)
     {
         String typ=dst.toString();
@@ -69,12 +74,7 @@ public class ImageColorSpaceReader implements ImageIO
         }
     }
  
-
-
-
     private ImageMatrix BufferedImagetoGray(BufferedImage src)
-
-
     {
        int w1 = src.getWidth();
        int h1 = src.getHeight();
@@ -101,9 +101,40 @@ public class ImageColorSpaceReader implements ImageIO
         gray.mask=new boolean[h1][w1];
         return gray;
     }
-
+    private ImageMatrix BufferedImagetoYCbCr(BufferedImage src)
+    {
+       int w1 = src.getWidth();
+       int h1 = src.getHeight();
+       double [][] mixY= new double[h1][w1];
+       double [][] mixCb= new double[h1][w1];
+       double [][] mixCr= new double[h1][w1];
+       int valueR=0;
+       int valueG=0;
+       int valueB=0;
+       for (int i = 0; i < h1; i++)
+       {
+            for (int j = 0; j < w1; j++) 
+            {
+                valueR = src.getRGB(j, i); 
+                valueG = src.getRGB(j, i);
+                valueB = src.getRGB(j, i);
+                int R = ( valueR >> 16) & 0xff;
+                int G = ( valueG >> 8) & 0xff;
+                int B = ( valueB) & 0xff;
+                Vector<Double> YCbCr=ImageColorSpaceConverter.RGBtoYCbCr(R, G, B) ;
+                mixY[i][j] = YCbCr.get(0);
+                mixCb[i][j] = YCbCr.get(1);
+                mixCr[i][j] = YCbCr.get(2);
+            }
+       }
+       ImageYCbCr imageYCbCr=new ImageYCbCr();
+       imageYCbCr.Y=mixY;
+       imageYCbCr.Cb=mixCb;
+       imageYCbCr.Cr=mixCr;
+       imageYCbCr.mask=new boolean[h1][w1];
+       return imageYCbCr;
+    }
     private ImageMatrix BufferedImagetoRGB(BufferedImage src)
-
     {
        int w1 = src.getWidth();
        int h1 = src.getHeight();
@@ -137,7 +168,6 @@ public class ImageColorSpaceReader implements ImageIO
     }
 
     private ImageMatrix BufferedImagetoHSV(BufferedImage src)
-
     {
        int w1 = src.getWidth();
        int h1 = src.getHeight();
@@ -172,37 +202,7 @@ public class ImageColorSpaceReader implements ImageIO
     }
 
 
-    @Override
-    public BufferedImage getBufferedImage(String path) 
-    {
-        try 
-        {
-            File input = new File(path);
-            BufferedImage image = javax.imageio.ImageIO.read(input);
-            return image;
-        } 
-        catch (IOException ie) 
-        {
-            logger.error(ie.getMessage());
-        }
-        return null;
-    }
-    @Override
-    public BufferedImage getBufferedImage(URL path) 
-    {
-        try 
-        {
-            BufferedImage image = javax.imageio.ImageIO.read(path);
-            return image;
-        } 
-        catch (IOException ie) 
-        {
-            logger.error(ie.getMessage());
-        }
-        return null;
-    }
-
-
+  
     public ImageMatrix BufferedImagetoImageMatrix(BufferedImage src, String dst)
     {
         String typ=dst.toString();
@@ -219,9 +219,12 @@ public class ImageColorSpaceReader implements ImageIO
         {
             return BufferedImagetoHSV(src);
         }
+         else  if(typ.equals("ColorSpaceYCbCr"))
+        {
+            return BufferedImagetoYCbCr(src);
+        }
         return null;
     
     }
-
-    
+  
 }

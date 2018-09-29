@@ -4,7 +4,7 @@ package com.whuang022.litecv.colorspace;
  *
  * @author user
  */
-public class ImageSpaceFactory 
+public class ImageColorSpaceFactory 
 {
     public static ImageMatrix getImageColorSpaceInstance(ImageColorSpaceType type)
     {

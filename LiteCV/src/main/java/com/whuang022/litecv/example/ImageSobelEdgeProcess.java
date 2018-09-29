@@ -22,8 +22,8 @@ public class ImageSobelEdgeProcess {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-       // int ksize=3;
-      //  int padding=ksize/2;
+        // int ksize=3;
+        //  int padding=ksize/2;
         ImageIO io=new ImageIO();
         BufferedImage imageBuff= io.getImage("test.jpg");
         int[][]image=io.getGrayF(imageBuff);

@@ -37,7 +37,10 @@ public class ImageGray extends ImageVisual implements ImageMatrix ,Serializable
         }
     }
 
-
+    public BufferedImage getBufferedImage()
+    {
+        return matrixToImage(G);
+    }
     @Override
     public ImageColorSpaceType getType() 
     {

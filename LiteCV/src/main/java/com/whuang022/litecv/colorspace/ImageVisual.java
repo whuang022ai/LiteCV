@@ -24,6 +24,7 @@ public class ImageVisual implements Serializable
       frame.setVisible(true);
       frame.setTitle(title);
     }
+   
     public BufferedImage matrixToImage(int [][] R,int [][]G,int[][]B)//RGB矩陣轉影像
     {
         BufferedImage bufferedImage = new BufferedImage( R[0].length,  R.length, BufferedImage.TYPE_INT_RGB);
@@ -83,7 +84,13 @@ public class ImageVisual implements Serializable
                 int pixel=0;
                 if(!mask[i][j])
                 {
-                    int blue= (int) Math.round(H[i][j]*(1.0/360.0)*255);
+                    //int blue= (int) Math.round(H[i][j]*(1.0/360.0)*255);
+                   //double HH=(H/(2*Math.PI))*360;
+                    double HT=H[i][j];
+                   // double HH=(HT/(2*Math.PI))*360/360*255;
+                    double HH=(HT/(2*Math.PI))*255;//弧度轉角度 正規化到0~255
+                    int blue= (int) Math.round(HH);
+                  //  int blue= (int) Math.round(H[i][j]*(1.0/2*Math.PI)*255);
                     int green=(int) Math.round(S[i][j]*255);
                     int red=(int) Math.round(V[i][j]);
                     if(red>255){red=255;}

@@ -1,6 +1,9 @@
 package com.whuang022.litecv.resize;
 
-import com.whuang022.litecv.math.ImageMatrix;
+import com.whuang022.litecv.math.Matrix;
+import com.whuang022.litecv.math.MatrixAPI;
+
+
 
 
 
@@ -11,7 +14,42 @@ import com.whuang022.litecv.math.ImageMatrix;
  */
 public class ImageResize 
 {
-    
+    private  MatrixAPI   matrixTool; 
+    public ImageResize()
+    {
+       this.matrixTool= new Matrix ();
+    }
+    public int[][] getImageToSizeBiLinear(int[][] image,int w,int h)
+    {
+      
+       double srcWidth = image[0].length;//水平
+       double srcHeight = image.length;//垂直
+       double wWeight=w/srcWidth;
+       double hWeight=h/srcHeight;
+       double dstWidth=srcWidth*wWeight;
+       double dstHeight=srcHeight*hWeight;
+       int[][] dest=new int [(int)dstHeight][(int)dstWidth];
+       for(int m=0;m<dest.length;m++)
+       {
+           for(int n=0;n<dest[0].length;n++)
+           {
+                double srcX= (n)* (srcWidth/(dstWidth)) ;
+                double srcY =(m)* (srcHeight/(dstHeight));
+                int i=(int) Math.round(srcX);
+                int j=(int) Math.round(srcY);
+                double u= srcX-i;
+                double v=srcY-j;
+                if(i>srcWidth-2||j>srcHeight-2)
+                {
+                    i=(int)Math.round(srcWidth-2);
+                    j=(int)Math.round(srcHeight-2);
+                }
+                double data=(1-u)*(1-v)*image[j][i] + (1-u)*v*image[j+1][i] + u*(1-v)*image[j][i+1] + u*v*image[j+1][i+1];
+                dest[m][n]=(int)Math.round(data);
+            }
+       }
+        return dest;
+    }
     public int[][] nearestInterpolation(int [][] image,double t)//最鄰近插值
     {
        double srcWidth = image[0].length;//水平
@@ -172,8 +210,8 @@ public class ImageResize
                 vM[0][2]=bicubicConvolutionKernel(1-v);
                 vM[0][3]=bicubicConvolutionKernel(2-v);
                 
-                double[][] tmp=ImageMatrix.product(vM, f);
-                double[][] data=ImageMatrix.product(tmp, uM);
+                double[][] tmp=matrixTool.product(vM, f);
+                double[][] data=matrixTool.product(tmp, uM);
                 
                 dest[m][n]=(int)Math.round(data[0][0]);
             }
