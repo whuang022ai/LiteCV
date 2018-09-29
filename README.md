@@ -1,5 +1,7 @@
 # LiteCV - Lite Computer Vision Library
 
+![](https://bytebucket.org/whuang022/litecv/raw/5cc118a434b78cbd1a16bee0b238751fe3b6af3a/LiteCV/LiteCVLogoSmall.jpg)
+
 ## About
 Lite Computer Vision Library (LiteCV) is an object-oriented, 
 written in pure Java and portable library of computer vision algorithms. 
