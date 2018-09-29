@@ -7,7 +7,6 @@ package com.whuang022.litecv.example;
 
 import com.whuang022.litecv.filter.ImageFilter;
 import com.whuang022.litecv.filter.ImageMedianFilter;
-import com.whuang022.litecv.filter.ImageSobelEdgeFilter;
 import com.whuang022.litecv.io.ImageIO;
 import java.awt.image.BufferedImage;
 
@@ -23,7 +22,7 @@ public class ImageMedianFilterProcess {
     public static void main(String[] args) {
         // TODO code application logic here
         ImageIO io=new ImageIO();
-        BufferedImage imageBuff= io.getImage("C:\\Users\\user\\Desktop\\noisylena.jpg");
+        BufferedImage imageBuff= io.getImage("noisylena.jpg");
         int[][]image=io.getGrayF(imageBuff);
         BufferedImage imageGrayBuff=io.matrixToImage(image);
         io.showImage(imageGrayBuff);
