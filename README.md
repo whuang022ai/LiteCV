@@ -46,7 +46,7 @@ public class ImageMedianFilterProcess {
 }
 
 ```
-
+![Scheme](Litecvex.jpg)
 
 ## License
 Copyright 2018 YANG,MING-HAN
