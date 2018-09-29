@@ -49,6 +49,10 @@ public class ImageMedianFilterProcess {
 
 ```
 ![](https://bytebucket.org/whuang022/litecv/raw/8d65cf0ae8eef320033e81cd5ba116c8d9d5679b/LiteCV/Litecvex.jpg)
+## API Document
+
+LiteCV beta version 0.0.1 API Declaration [Download File Here](https://bitbucket.org/whuang022/litecv/raw/5347d45b7536ce5179d8a51257f2e8a59881152d/LiteCV%20beta%20version%20API%20Declaration.pdf
+)
 
 ## License
 Copyright 2018 YANG,MING-HAN
