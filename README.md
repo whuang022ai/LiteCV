@@ -254,4 +254,4 @@ END OF TERMS AND CONDITIONS
 ```
 ## Developer
 
-. Ming Han Yang (whuang022@gmail.com)
+. Ming Han Yang (whuang022@gmail.com) ＠ [NTUE CS](https://www.ntue.edu.tw/) 
